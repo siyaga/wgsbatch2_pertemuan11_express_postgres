@@ -1,0 +1,17 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <% if (!contact) { %>
+    Data contact tidak ada.<br> <a href="/contact" class="alert-link fw-normal">&laquo;back to contact list</a>.
+    <% } else { %>
+    <h5 class="card-title"><%= contact.name %> </h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= contact.mobile %> </h6>
+    <p class="card-text"><%= contact.email %></p>
+    <a href="/contact/edit/<%= contact.name %>" class="btn btn-primary"><i class="bi bi-pencil-square"></i>
+      Update</a>
+    <a href="/contact/delete/<%= contact.name %>" class="btn btn-danger"
+      onclick="return confirm('yakin Anda Menghapus <%= contact.name %>?')"><i class="bi bi-trash-fill"></i> Delete</a>
+    <br>
+    <a href="/contact" class="card-link">&laquo; back to contact list</a>
+    <% } %>
+  </div>
+</div>

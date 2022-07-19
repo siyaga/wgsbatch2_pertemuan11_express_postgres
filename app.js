@@ -75,7 +75,7 @@ app.get("/addasync", async (req, res) => {
   }
 })
 
-// home pages
+// home 
 app.get('/', (req, res) => {
 
 
@@ -187,9 +187,16 @@ app.get('/contact/delete/:name', (req, res) => {
       res.status(404);
       res.send('<h1>404</h1>')
     } else {
-      result.rows[0]
-      req.flash('msg', 'Data contact berhasil di Hapus')
-      res.redirect('/contact');
+      if (name !== sql) {
+        req.flash('msg', 'Data contact Tidak ditemukan')
+        res.redirect('/contact');
+
+      } else {
+        result.rows[0]
+        req.flash('msg', 'Data contact berhasil di Hapus')
+        res.redirect('/contact');
+      }
+
     }
   })
 })

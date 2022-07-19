@@ -1,4 +1,8 @@
 <div class="container">
+  <% if (!contact) { %>
+  Data contact tidak ada.<br> <a href="/contact" class="alert-link fw-normal">&laquo;back to contact list</a>.
+  <% } else { %>
+
   <div class="row">
     <h1 class="page-header"><i class="fas fa-edit"></i>Edit Contact :</h1>
 
@@ -32,7 +36,7 @@
         value="<%= contact.email %>">
     </div>
     <button type="submit" class="btn btn-primary">Update Contact</button>
-
+    <% } %>
   </div>
 
 
